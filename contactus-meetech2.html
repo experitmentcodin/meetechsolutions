@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Details Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            display: flex;
+            justify-content: space-between;
+            width: 80%;
+            max-width: 1200px;
+        }
+
+        .profile-container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 25%;
+            text-align: center;
+        }
+
+        .profile-container img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 10px;
+        }
+
+        .profile-container h3 {
+            margin-bottom: 5px;
+            font-size: 20px;
+            color: #333;
+        }
+
+        .profile-container p {
+            margin: 5px 0;
+            color: #555;
+        }
+
+        .form-container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 40%;
+        }
+
+        h2 {
+            margin-bottom: 20px;
+            font-size: 24px;
+            color: #333;
+            text-align: center;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            color: #555;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="date"],
+        input[type="number"],
+        select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            background-color: #28a745;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 10px;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #218838;
+        }
+
+        /* Custom Alert Styles */
+        .custom-alert {
+            display: none;
+            position: fixed;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            background: #fff;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+            text-align: center;
+            width: 300px;
+        }
+
+        .custom-alert p {
+            margin: 0;
+            font-size: 16px;
+            color: #333;
+        }
+
+        .custom-alert button {
+            margin-top: 10px;
+            padding: 10px;
+            background-color: #28a745;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .custom-alert button:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <!-- Profile 1 -->
+        <div class="profile-container">
+            <img src="vamsi.png" alt="Profile Photo">
+            <h3>Vamshi Krishna</h3>
+            <p>Email: vamshikrishnamudiraj127@gmail.com</p>
+            <p>Contact: +91 95502 00081</p>
+        </div>
+
+        <!-- Form -->
+        <div class="form-container">
+            <h2>Customer Details Form</h2>
+            <form id="employeeForm" action="https://script.google.com/macros/s/AKfycbzMIV6gdcT630qrZzXCfmpPa5mCHXDa71iRpBRu24i6SfYb_iK3g1o2-QnC5ndk0i90/exec" method="POST">
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="designation">Location</label>
+                    <input type="text" id="designation" name="designation" required>
+                </div>
+                <div class="form-group">
+                    <label for="ctc">Budget</label>
+                    <input type="number" id="ctc" name="ctc" required>
+                </div>
+                <div class="form-group">
+                    <label for="doj">Requirement Date</label>
+                    <input type="date" id="doj" name="doj" required>
+                </div>
+                <div class="form-group">
+                    <label for="businessType">Business Type</label>
+                    <select id="businessType" name="businessType" required>
+                        <option value="">Select Type</option>
+                        <option value="IT">Individual</option>
+                        <option value="Finance">Partnership Firm</option>
+                        <option value="Marketing">Company</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="serviceRequired">Service Required</label>
+                    <select id="serviceRequired" name="serviceRequired" required>
+                        <option value="">Select Service</option>
+                        <option value="Consulting">Accounting and MIS</option>
+                        <option value="Implementation">Digital Marketing</option>
+                        <option value="Support">Web Development</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <input type="submit" value="Submit">
+            </form>
+        </div>
+
+        <!-- Profile 2 -->
+        <div class="profile-container">
+            <img src="maniraj.png" alt="Profile Photo">
+            <h3>Mani Raj</h3>
+            <p>Email: maniraj@maniraj.com</p>
+            <p>Contact: +91 95502 00081 </p>
+        </div>
+    </div>
+
+    <!-- Custom Alert -->
+    <div id="customAlert" class="custom-alert">
+        <p>Email Sent</p>
+        <button onclick="closeAlert()">OK</button>
+    </div>
+
+    <script>
+        document.getElementById('employeeForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent the default form submission
+
+            // Create a FormData object and submit the form data
+            const formData = new FormData(this);
+
+            fetch(this.action, {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.text())
+            .then(() => {
+                // Show the custom alert
+                document.getElementById('customAlert').style.display = 'block';
+            })
+            .catch(error => console.error('Error:', error));
+        });
+
+        function closeAlert() {
+            // Hide the custom alert
+            document.getElementById('customAlert').style.display = 'none';
+
+            // Reset the form
+            document.getElementById('employeeForm').reset();
+        }
+    </script>
+</body>
+
+</html>

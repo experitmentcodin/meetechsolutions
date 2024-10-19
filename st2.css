@@ -1,0 +1,163 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+}
+
+header {
+    background-color: darkgray;
+    color: #fff;
+    padding: 1rem;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar .logo {
+    font-size: 1.5rem;
+}
+
+.navbar nav ul {
+    list-style: none;
+    display: flex;
+}
+
+.navbar nav ul li {
+    margin-left: 1.5rem;
+}
+
+.navbar nav ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+.cta {
+    background-color: #f39c12;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+}
+
+.hero {
+    position: relative;
+    background-image: url('hero-image.png'); /* Single background image */
+    background-size: cover;
+    background-position: center;
+    height: 100vh; /* Full height */
+    display: flex;
+    justify-content: center; /* Center content horizontally */
+    align-items: center; /* Center content vertically */
+    color: white;
+    opacity: 0.7; /* Reduce opacity of hero image to 70% */
+}
+
+.hero-content {
+    display: flex; /* Use flexbox for columns */
+    width: 100%;
+    height: 50%; /* Occupy 50% of hero height */
+    opacity: 1; /* Set hero content opacity to 100% */
+    position: relative; /* Ensure content is above the background */
+}
+
+.column {
+    padding: 2rem; /* Padding for each column */
+    text-align: center; /* Center text in columns */
+    z-index: 2; /* Ensure columns are above background */
+    background-color: rgba(1, 0, 0, 0.5);/*  Optional: Background for better readability */
+    border-radius: 8px; /* Rounded corners */
+    margin: 1rem; /* Space between columns */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5); /* Add shadow to columns */
+}
+
+
+
+.left-column,
+.right-column {
+    flex: 1;
+    height: 100%;/* Equal width for left and right columns */
+}
+
+.center-column {
+    flex: 1; /* Wider column for the center */
+    height: 130%; /* Make the center column take full height */
+    display: flex;
+    flex-direction: column; /* Allow content to stack vertically */
+    justify-content: center; /* Center content vertically */
+    margin-top: -20px; /* Move the center column upwards */
+}
+
+.column h1 {
+    margin-bottom: 1rem; /* Space below the heading */
+}
+
+.column p {
+    margin-bottom: 1rem; /* Space between paragraphs */
+}
+
+.primary-btn {
+    background-color: #f39c12; /* Button background */
+    color: white; /* Button text color */
+    border: none;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+}
+
+.features {
+    padding: 2rem;
+    display: flex;
+    justify-content: space-around;
+}
+
+.feature {
+    flex: 1;
+    margin: 1rem;
+    text-align: center;
+}
+
+/* Styles for the new info section */
+.info-section {
+    display: flex; /* Use flexbox to align columns side by side */
+    justify-content: space-around; /* Distribute space evenly */
+    padding: 2rem; /* Padding for the section */
+    background-color: #f4f4f4; /* Light background for contrast */
+}
+
+.info-section .column {
+    flex: 1; /* Each column will take equal space */
+    margin: 0 1rem; /* Margin for spacing */
+    padding: 1rem; /* Padding for each column */
+    text-align: left; /* Align text to the left */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Light shadow for columns */
+    border-radius: 8px; /* Optional: Rounded corners for aesthetics */
+}
+
+.info-section h2 {
+    margin-bottom: 1rem; /* Space below the heading */
+}
+
+.info-section ul {
+    list-style-type: none; /* Remove bullet points */
+    padding-left: 0; /* Remove left padding */
+}
+
+.info-section li {
+    margin-bottom: 0.5rem; /* Space between list items */
+}
+
+.info-section a {
+    color: #007bff; /* Link color */
+    text-decoration: none; /* Remove underline from links */
+}
+
+.info-section a:hover {
+    text-decoration: underline; /* Underline on hover for links */
+}
