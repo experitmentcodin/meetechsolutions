@@ -10,7 +10,7 @@ body {
 }
 
 header {
-    background-color: darkgray;
+    background-color: rgba(214, 90, 49, 0.6);
     color: #fff;
     padding: 1rem;
 }
@@ -49,7 +49,7 @@ header {
 
 .hero {
     position: relative;
-    background-image: url('hero-image.png'); /* Single background image */
+    background-image: url('freepik-untitled-project-20241019111237GbmG.png'); /* Single background image */
     background-size: cover;
     background-position: center;
     height: 100vh; /* Full height */
