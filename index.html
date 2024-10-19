@@ -5,29 +5,55 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Meetech Solutions</title>
     <link rel="stylesheet" href="st2.css">
-        <style>
+    <style>
         .logo {
-            width: 90px;  /* Set desired width */
+            width: 90px;  
             height: 40px;
-            align-self: auto;/* Maintains aspect ratio */
+            align-self: auto;
         }
-                   .logo2 {
-        font-family: 'Optima';
-        width: 800px;
-        height: 40px;
-        font-weight: bold;
-        font-size: 35px;
-        color: black; /* Text color */
-      
+        .logo2 {
+            font-family: 'Optima';
+            width: 800px;
+            height: 40px;
+            font-weight: bold;
+            font-size: 35px;
+            color: black; 
+            display: inline-block;
+            animation: scroll 50s linear infinite; /* Adjust duration as needed */
         }
-            
-            
+        
+        
+        @keyframes scroll {
+
+    50% {
+        transform: translateX(50%); /* Move to the left */
+    }
+
+
+        /* Styling for the new section */
+        .mis-section {
+            background-color: #f8f9fa;  /* Light background for plain look */
+            padding: 40px;
+            text-align: center;
+        }
+        .mis-section h2 {
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+        .mis-section ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        .mis-section ul li {
+            font-size: 18px;
+            margin: 10px 0;
+            color: #333;  /* Text color */
+        }
     </style>
 </head>
 <body>
     <header>
         <div class="navbar">
-    
             <div class="logo2">MEETECH SOLUTIONS</div>
             <nav>
                 <ul>
@@ -36,9 +62,8 @@
                 </ul>
             </nav>
             <a href="contactus-meetech2.html">
-    <button class="cta">Get Started</button>
-</a>
-
+                <button class="cta">Get Started</button>
+            </a>
         </div>
     </header>
 
@@ -62,8 +87,11 @@
             </div>
         </div>
     </section>
-
-    <section class="features">
+    
+    
+    
+    
+        <section class="features">
         <div class="feature">
             <h2>Engaging Strategies</h2>
             <p>Boosting Brands, Driving Growth</p>
@@ -77,6 +105,43 @@
             <p>Empowering Businesses Through Technology</p>
         </div>
     </section>
+
+    <!-- MIS-Related Financial Reporting Challenges Section -->
+    <section class="mis-section">
+        <div class="mis-section-text">
+    
+        <h2>Financial Reporting Challenges</h2>
+        <ul>
+            <li>How can management ensure the accuracy and integrity of financial data within an MIS framework?</li>
+            <li>What are the challenges of integrating financial data from multiple systems into a unified MIS?</li>
+            <li>How can leveraging technology like automation and AI improve MIS reporting processes?</li>
+            <li>What steps can be taken to ensure timely financial reporting through an effective MIS?</li>
+            <li>How important is transparency in MIS reports, and what are the risks of insufficient data visibility?</li>
+        </ul>
+              </div>
+      
+    </section>
+
+    
+    <section class="marketing-section">
+  
+    
+        <h2>Digital Marketing Challenges for Small Business</h2>
+        <ul>
+            <li>How to manage a limited budget for online advertising?</li>
+            <li>How to build brand awareness and recognition?</li>
+            <li>How to generate quality leads consistently?</li>
+            <li>How to engage the audience on social media?</li>
+            <li>How to keep up with changing market trends?</li>
+        </ul>
+            
+      
+    </section>
+
+    
+    
+    
+
 
     <!-- New section with three columns -->
     <section class="info-section">
