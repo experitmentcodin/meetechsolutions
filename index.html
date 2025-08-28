@@ -15,7 +15,6 @@
       background-color: yellow;
     }
     
-
     input, select {
       padding: 5px;
     }
@@ -70,14 +69,8 @@
         font-weight: bold;
       }
 
-      /* Show static text instead of inputs */
-      .print-value {
-        display: inline;
-      }
-
-      .editable {
-        display: none;
-      }
+      .print-value { display: inline; }
+      .editable { display: none; }
     }
   </style>
 </head>
@@ -127,10 +120,11 @@
   <!-- Grand Total -->
   <h2>Grand Total: ₹<span id="grandTotal">0.00</span></h2>
   <hr>
-      <p> 
-Nizampet municipal office,Pragathinagar📍🌍! 
-Please let us know your requirement, we will respond to your message as soon as possible. 
-Thank you !!🙏🙏🙏 </p>
+  <p> 
+    Nizampet municipal office, Pragathinagar📍🌍! 
+    Please let us know your requirement, we will respond to your message as soon as possible. 
+    Thank you !!🙏🙏🙏 
+  </p>
 
   <script>
     // Populate discount options
@@ -138,7 +132,7 @@ Thank you !!🙏🙏🙏 </p>
     for (let i = 5; i <= 100; i += 5) {
       const option = document.createElement('option');
       option.value = i;
-      option.text = ${i}%;
+      option.text = `${i}%`;
       discountSelect.appendChild(option);
     }
 
@@ -189,19 +183,17 @@ Thank you !!🙏🙏🙏 </p>
 
         // Set text for print view
         row.cells[0].querySelector('.print-value').textContent = description;
-        row.cells[1].querySelector('.print-value').textContent = ₹${baseAmount.toFixed(2)};
+        row.cells[1].querySelector('.print-value').textContent = `₹${baseAmount.toFixed(2)}`;
 
-        row.querySelector('.gst').textContent = ₹${gst.toFixed(2)};
-        row.querySelector('.discount').textContent = ₹${discountAmount.toFixed(2)};
-        row.querySelector('.total').textContent = ₹${total.toFixed(2)};
+        row.querySelector('.gst').textContent = `₹${gst.toFixed(2)}`;
+        row.querySelector('.discount').textContent = `₹${discountAmount.toFixed(2)}`;
+        row.querySelector('.total').textContent = `₹${total.toFixed(2)}`;
 
         grandTotal += total;
       });
 
       document.getElementById('grandTotal').textContent = grandTotal.toFixed(2);
     }
-    <hr> 
-
   </script>
 
 </body>
