@@ -1,175 +1,208 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Meetech Solutions</title>
-    <link rel="stylesheet" href="st2.css">
-    <style>
-        .logo {
-            width: 90px;  
-            height: 40px;
-            align-self: auto;
-        }
-        .logo2 {
-            font-family: 'Optima';
-            width: 800px;
-            height: 40px;
-            font-weight: bold;
-            font-size: 35px;
-            color: black; 
-            display: inline-block;
-            animation: scroll 50s linear infinite; /* Adjust duration as needed */
-        }
-        
-        
-        @keyframes scroll {
-
-    50% {
-        transform: translateX(50%); /* Move to the left */
+  <meta charset="UTF-8">
+  <title>SRIKRISHNA FANCY DRESSES & COSTUMES!</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 30px;
     }
 
+    h1 {
+      text-align: center;
+      color: red;
+      background-color: yellow;
+    }
+    
 
-        /* Styling for the new section */
-        .mis-section {
-            background-color: #f8f9fa;  /* Light background for plain look */
-            padding: 40px;
-            text-align: center;
-        }
-        .mis-section h2 {
-            font-size: 28px;
-            margin-bottom: 20px;
-        }
-        .mis-section ul {
-            list-style-type: none;
-            padding: 0;
-        }
-        .mis-section ul li {
-            font-size: 18px;
-            margin: 10px 0;
-            color: #333;  /* Text color */
-        }
-    </style>
+    input, select {
+      padding: 5px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+
+    th, td {
+      border: 1px solid #ccc;
+      padding: 8px;
+      text-align: center;
+    }
+
+    button {
+      padding: 8px 16px;
+      margin: 10px 5px;
+      cursor: pointer;
+    }
+
+    .red { background-color: red; color: white; }
+    .green { background-color: green; color: white; }
+    .blue { background-color: dodgerblue; color: white; }
+
+    .highlight-amount { color: blue; font-weight: bold; }
+    .highlight-name { color: green; font-weight: bold; }
+
+    .print-only { display: none; }
+
+    @media print {
+      input,
+      select,
+      button,
+      .entry-section,
+      .action-buttons {
+        display: none !important;
+      }
+
+      .print-only {
+        display: block !important;
+      }
+
+      .highlight-name {
+        color: green !important;
+        font-weight: bold;
+      }
+
+      .highlight-amount {
+        color: blue !important;
+        font-weight: bold;
+      }
+
+      /* Show static text instead of inputs */
+      .print-value {
+        display: inline;
+      }
+
+      .editable {
+        display: none;
+      }
+    }
+  </style>
 </head>
 <body>
-    <header>
-        <div class="navbar">
-            <div class="logo2">MEETECH SOLUTIONS</div>
-            <nav>
-                <ul>
-                    <li><a href="AccountingDigitalMarketingpricing.html">PRICING</a></li>
-                    <li><a href="contactus-meetech2.html">CONTACT</a></li>
-                </ul>
-            </nav>
-            <a href="contactus-meetech2.html">
-                <button class="cta">Get Started</button>
-            </a>
-        </div>
-    </header>
 
-    <section class="hero">
-        <div class="hero-content">
-            <div class="column left-column">
-                <h1>Innovative Digital Marketing Solutions for Business Growth</h1>
-                <p>We deliver customized digital marketing strategies, including SEO and social media management, to enhance your online presence and engage your audience.</p>
-                <p>Our data-driven approach ensures impactful campaigns that drive traffic and conversions, enabling sustainable growth for your business.</p>
-            </div>
-            <div class="column center-column">
-                <h1>Expert Financial Consultancy with Advanced MIS Solutions</h1>
-                <p>With extensive experience in financial consultancy and Management Information Systems (MIS), we provide customized solutions designed to optimize your business's financial operations.</p>
-                <p>Utilizing advanced MIS reporting and analysis, we deliver actionable insights into your financial performance.</p>
-                <a href="contactus-meetech2.html"><button class="primary-btn">Have a Free Demo</button></a>
-            </div>
-            <div class="column right-column">
-                <h1>IT Consultancy for Better Business Performance</h1>
-                <p>We provide IT consultancy services that help improve your technology systems and make your operations more efficient.</p>
-                <p>Our solutions are designed to use the latest technologies, ensuring your business remains competitive and can easily adapt to changes in the digital world.</p>
-            </div>
-        </div>
-    </section>
-    
-    
-    
-    
-        <section class="features">
-        <div class="feature">
-            <h2>Engaging Strategies</h2>
-            <p>Boosting Brands, Driving Growth</p>
-        </div>
-        <div class="feature">
-            <h2>Insightful Financials</h2>
-            <p>Data-Driven Decisions for Success</p>
-        </div>
-        <div class="feature">
-            <h2>Streamlined Solutions</h2>
-            <p>Empowering Businesses Through Technology</p>
-        </div>
-    </section>
+  <h1>SRIKRISHNA FANCY DRESSES & COSTUMES!</h1>
 
-    <!-- MIS-Related Financial Reporting Challenges Section -->
-    <section class="mis-section">
-        <div class="mis-section-text">
-    
-        <h2>Financial Reporting Challenges</h2>
-        <ul>
-            <li>How can management ensure the accuracy and integrity of financial data within an MIS framework?</li>
-            <li>What are the challenges of integrating financial data from multiple systems into a unified MIS?</li>
-            <li>How can leveraging technology like automation and AI improve MIS reporting processes?</li>
-            <li>What steps can be taken to ensure timely financial reporting through an effective MIS?</li>
-            <li>How important is transparency in MIS reports, and what are the risks of insufficient data visibility?</li>
-        </ul>
-              </div>
-      
-    </section>
+  <!-- Customer Name Input -->
+  <div class="entry-section">
+    <label>Customer Name: </label>
+    <input type="text" id="customerName" placeholder="Enter customer's name" oninput="updateCustomerName()">
+  </div>
 
-    
-    <section class="marketing-section">
-  
-    
-        <h2>Digital Marketing Challenges for Small Business</h2>
-        <ul>
-            <li>How to manage a limited budget for online advertising?</li>
-            <li>How to build brand awareness and recognition?</li>
-            <li>How to generate quality leads consistently?</li>
-            <li>How to engage the audience on social media?</li>
-            <li>How to keep up with changing market trends?</li>
-        </ul>
-            
-      
-    </section>
+  <!-- Printed Name -->
+  <div class="print-only">
+    <strong>Customer Name:</strong>
+    <span id="printedCustomerName" class="highlight-name"></span>
+  </div>
 
-    
-    
-    
+  <!-- Bill Table -->
+  <table id="billTable">
+    <thead>
+      <tr>
+        <th>Description</th>
+        <th>Amount (₹)</th>
+        <th>GST (18%)</th>
+        <th>Discount (₹)</th>
+        <th>Total (₹)</th>
+        <th class="entry-section">Action</th>
+      </tr>
+    </thead>
+    <tbody id="billBody"></tbody>
+  </table>
 
+  <!-- Buttons and Discount -->
+  <div class="action-buttons">
+    <button class="green" onclick="addItem()">+ Add Item</button>
 
-    <!-- New section with three columns -->
-    <section class="info-section">
-        <div class="column23">
-            <h2>Our Products</h2>
-            <ul>
-                <li>Accounting and Compliance</li>
-                <li>Auditing</li>
-                <li>MIS Reporting</li>
-                <li>Digital Marketing</li>
-                <li>Web Development</li>
-            </ul>
-        </div>
-        <div class="column23">
-            <h2>Legal & Privacy</h2>
-            <ul>
-                <li><a href="index2-termsofservice policy.html">Terms of Service</a></li>
-                <li><a href="index2-privacy policy.html">Privacy Policy</a></li>
-                <li><a href="index2-cookie policy.html">Cookie Policy</a></li>
-                <li><a href="index2-refund policy.html">Refund Policy</a></li>
-            </ul>
-        </div>
-        <div class="column23">
-            <h2>Contact Us</h2>
-            <p>Email: vamshikrishnamudiraj127@gmail.com</p>
-            <p>Phone: +91 95502 00081</p>
-            <p>Address: Balnagar, Hyderabad, India</p>
-        </div>
-    </section>
+    <label for="discountSelect">Give Discount:</label>
+    <select id="discountSelect" onchange="updateTotals()">
+      <option value="0">No Discount</option>
+    </select>
+
+    <button class="blue" onclick="window.print()">🖨️ Print Bill</button>
+  </div>
+
+  <!-- Grand Total -->
+  <h2>Grand Total: ₹<span id="grandTotal">0.00</span></h2>
+  <hr>
+      <p> 
+Nizampet municipal office,Pragathinagar📍🌍! 
+Please let us know your requirement, we will respond to your message as soon as possible. 
+Thank you !!🙏🙏🙏 </p>
+
+  <script>
+    // Populate discount options
+    const discountSelect = document.getElementById('discountSelect');
+    for (let i = 5; i <= 100; i += 5) {
+      const option = document.createElement('option');
+      option.value = i;
+      option.text = ${i}%;
+      discountSelect.appendChild(option);
+    }
+
+    function updateCustomerName() {
+      const name = document.getElementById('customerName').value;
+      document.getElementById('printedCustomerName').textContent = name;
+    }
+
+    function addItem() {
+      const tbody = document.getElementById('billBody');
+      const row = document.createElement('tr');
+
+      row.innerHTML = `
+        <td>
+          <input type="text" class="editable" oninput="updateTotals()" placeholder="Item description" />
+          <span class="print-only print-value"></span>
+        </td>
+        <td>
+          <input type="number" class="editable" value="0" oninput="updateTotals()" />
+          <span class="print-only print-value"></span>
+        </td>
+        <td class="gst">₹0.00</td>
+        <td class="discount">₹0.00</td>
+        <td class="total highlight-amount">₹0.00</td>
+        <td class="entry-section">
+          <button class="red" onclick="this.closest('tr').remove(); updateTotals();">X</button>
+        </td>
+      `;
+
+      tbody.appendChild(row);
+    }
+
+    function updateTotals() {
+      const rows = document.querySelectorAll('#billBody tr');
+      let grandTotal = 0;
+      const discountPercent = parseInt(document.getElementById('discountSelect').value);
+
+      rows.forEach(row => {
+        const descInput = row.cells[0].querySelector('input');
+        const amtInput = row.cells[1].querySelector('input');
+
+        const description = descInput.value || '';
+        const baseAmount = parseFloat(amtInput.value) || 0;
+
+        const discountAmount = baseAmount * (discountPercent / 100);
+        const gst = baseAmount * 0.18;
+        const total = (baseAmount - discountAmount) + gst;
+
+        // Set text for print view
+        row.cells[0].querySelector('.print-value').textContent = description;
+        row.cells[1].querySelector('.print-value').textContent = ₹${baseAmount.toFixed(2)};
+
+        row.querySelector('.gst').textContent = ₹${gst.toFixed(2)};
+        row.querySelector('.discount').textContent = ₹${discountAmount.toFixed(2)};
+        row.querySelector('.total').textContent = ₹${total.toFixed(2)};
+
+        grandTotal += total;
+      });
+
+      document.getElementById('grandTotal').textContent = grandTotal.toFixed(2);
+    }
+    <hr> 
+
+  </script>
+
 </body>
 </html>
