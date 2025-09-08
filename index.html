@@ -1,200 +1,415 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
-  <meta charset="UTF-8">
-  <title>SRIKRISHNA FANCY DRESSES & COSTUMES!</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      padding: 30px;
-    }
-
-    h1 {
-      text-align: center;
-      color: red;
-      background-color: yellow;
-    }
-    
-    input, select {
-      padding: 5px;
-    }
-
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-top: 20px;
-    }
-
-    th, td {
-      border: 1px solid #ccc;
-      padding: 8px;
-      text-align: center;
-    }
-
-    button {
-      padding: 8px 16px;
-      margin: 10px 5px;
-      cursor: pointer;
-    }
-
-    .red { background-color: red; color: white; }
-    .green { background-color: green; color: white; }
-    .blue { background-color: dodgerblue; color: white; }
-
-    .highlight-amount { color: blue; font-weight: bold; }
-    .highlight-name { color: green; font-weight: bold; }
-
-    .print-only { display: none; }
-
-    @media print {
-      input,
-      select,
-      button,
-      .entry-section,
-      .action-buttons {
-        display: none !important;
-      }
-
-      .print-only {
-        display: block !important;
-      }
-
-      .highlight-name {
-        color: green !important;
-        font-weight: bold;
-      }
-
-      .highlight-amount {
-        color: blue !important;
-        font-weight: bold;
-      }
-
-      .print-value { display: inline; }
-      .editable { display: none; }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mani Raj | Chief Efficiency Officer for Hire</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Chosen Palette: "Modern Professional" - A palette using a warm off-white background (#F9F6F2), dark slate for text (#334155), and a vibrant teal (#14B8A6) as the primary accent for calls to action and highlights, creating a calm, trustworthy, and modern feel. -->
+    <!-- Application Structure Plan: A single-page, top-to-bottom narrative structure designed to act as an interactive sales pitch. It starts with a strong value proposition (Hero), builds a case by highlighting pain points (Problem), presents the solution interactively (Services, ROI Calculator), builds credibility (Case Study, Roadmap), and ends with a clear call to action. This flow is more persuasive than simply listing the slide contents and guides the potential client logically from problem to solution. -->
+    <!-- Visualization & Content Choices: 1. Revenue Model -> Goal: Organize/Compare -> Viz: Doughnut Chart -> Interaction: Hover tooltips -> Justification: Visually breaks down potential first-year revenue streams in an easily digestible format, more engaging than a simple list. -> Library: Chart.js. 2. Value Proposition -> Goal: Inform/Engage -> Viz: Interactive ROI Calculator -> Interaction: User inputs data via sliders, JS calculates and displays tangible savings. -> Justification: Personalizes the value proposition, making it concrete and highly impactful for the potential client. -> Library/Method: Vanilla JS + HTML. 3. Services -> Goal: Organize/Inform -> Viz: Tabbed Interface -> Interaction: Click to reveal content. -> Justification: Prevents information overload, allows users to explore services at their own pace in a structured way. -> Library/Method: Vanilla JS + HTML/CSS. 4. Growth Roadmap -> Goal: Show Change/Process -> Viz: HTML/CSS Stepped Timeline -> Interaction: Subtle highlights. -> Justification: Clearly visualizes the long-term vision and business growth plan, building confidence. -> Library/Method: HTML/CSS with Tailwind. -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #F9F6F2;
+            color: #334155;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 400px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 300px;
+            max-height: 400px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 350px;
+            }
+        }
+        .nav-link-active {
+            color: #14B8A6;
+            font-weight: 600;
+        }
+        .slider-thumb::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 20px;
+            height: 20px;
+            background: #14B8A6;
+            cursor: pointer;
+            border-radius: 50%;
+        }
+        .slider-thumb::-moz-range-thumb {
+            width: 20px;
+            height: 20px;
+            background: #14B8A6;
+            cursor: pointer;
+            border-radius: 50%;
+        }
+    </style>
 </head>
-<body>
+<body class="antialiased">
+    <header class="bg-white/80 backdrop-blur-md sticky top-0 z-50 shadow-sm">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" class="text-xl font-bold text-slate-700">Mani Raj</a>
+            <div class="hidden md:flex space-x-8">
+                <a href="#services" class="nav-link text-slate-600 hover:text-teal-500 transition-colors">Services</a>
+                <a href="#roi" class="nav-link text-slate-600 hover:text-teal-500 transition-colors">ROI Calculator</a>
+                <a href="#plan" class="nav-link text-slate-600 hover:text-teal-500 transition-colors">My Plan</a>
+                <a href="#contact" class="nav-link text-slate-600 hover:text-teal-500 transition-colors">Contact</a>
+            </div>
+            <a href="#contact" class="bg-teal-500 text-white px-5 py-2 rounded-full font-semibold hover:bg-teal-600 transition-transform hover:scale-105">Book an Audit</a>
+        </nav>
+    </header>
 
-  <h1>SRIKRISHNA FANCY DRESSES & COSTUMES!</h1>
+    <main>
+        <section id="hero" class="py-20 md:py-32">
+            <div class="container mx-auto px-6 text-center">
+                <h1 class="text-4xl md:text-6xl font-bold text-slate-800 leading-tight">
+                    Your On-Demand <span class="text-teal-500">Chief Efficiency Officer</span>
+                </h1>
+                <p class="mt-6 text-lg md:text-xl text-slate-600 max-w-3xl mx-auto">
+                    I help SMEs & Startups transform their Finance and HR operations. With One-Click Automation, you can reduce manual effort by up to 70% and focus on what truly matters: growth.
+                </p>
+                <div class="mt-10">
+                    <a href="#contact" class="bg-teal-500 text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-teal-600 transition-transform hover:scale-105 shadow-lg">Unlock Your Efficiency</a>
+                </div>
+            </div>
+        </section>
 
-  <!-- Customer Name Input -->
-  <div class="entry-section">
-    <label>Customer Name: </label>
-    <input type="text" id="customerName" placeholder="Enter customer's name" oninput="updateCustomerName()">
-  </div>
+        <section id="problem" class="py-16 bg-white">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold text-slate-800">The Challenge & The Opportunity</h2>
+                    <p class="mt-4 text-slate-600 max-w-2xl mx-auto">Manual processes aren't just slow—they're a barrier to scaling your business effectively.</p>
+                </div>
+                <div class="grid md:grid-cols-2 gap-10">
+                    <div class="bg-amber-50 border border-amber-200 rounded-xl p-8">
+                        <h3 class="text-2xl font-semibold text-amber-800 mb-4">The Pain of Manual Work</h3>
+                        <ul class="space-y-3 text-amber-700">
+                            <li class="flex items-start"><span class="text-xl mr-3">❌</span><span>Excessive time spent on repetitive Finance & HR tasks.</span></li>
+                            <li class="flex items-start"><span class="text-xl mr-3">❌</span><span>Costly errors in compliance, reporting, and payroll.</span></li>
+                            <li class="flex items-start"><span class="text-xl mr-3">❌</span><span>Leadership distraction from strategic growth initiatives.</span></li>
+                            <li class="flex items-start"><span class="text-xl mr-3">❌</span><span>Operational inefficiencies that hinder scalability.</span></li>
+                        </ul>
+                    </div>
+                    <div class="bg-teal-50 border border-teal-200 rounded-xl p-8">
+                        <h3 class="text-2xl font-semibold text-teal-800 mb-4">The Gain from Automation</h3>
+                        <ul class="space-y-3 text-teal-700">
+                            <li class="flex items-start"><span class="text-xl mr-3">✅</span><span>Drastic cost savings and a huge boost in operational efficiency.</span></li>
+                            <li class="flex items-start"><span class="text-xl mr-3">✅</span><span>Faster, data-driven decisions with automated MIS reports.</span></li>
+                            <li class="flex items-start"><span class="text-xl mr-3">✅</span><span>Assured compliance readiness and elimination of manual errors.</span></li>
+                            <li class="flex items-start"><span class="text-xl mr-3">✅</span><span>A focused leadership team driving business growth.</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-  <!-- Printed Name -->
-  <div class="print-only">
-    <strong>Customer Name:</strong>
-    <span id="printedCustomerName" class="highlight-name"></span>
-  </div>
+        <section id="services" class="py-16">
+            <div class="container mx-auto px-6">
+                 <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold text-slate-800">My Core Services</h2>
+                    <p class="mt-4 text-slate-600 max-w-2xl mx-auto">I offer a flexible range of services designed to meet you where you are and guide you towards full automation.</p>
+                </div>
+                <div class="max-w-4xl mx-auto">
+                    <div class="mb-4 flex space-x-2 md:space-x-4 p-1 bg-slate-200 rounded-full justify-center">
+                        <button data-tab="tab1" class="tab-btn bg-white text-slate-700 w-full font-semibold px-4 py-3 rounded-full transition">Automation Audit</button>
+                        <button data-tab="tab2" class="tab-btn w-full font-semibold px-4 py-3 rounded-full transition">Monthly Retainers</button>
+                        <button data-tab="tab3" class="tab-btn w-full font-semibold px-4 py-3 rounded-full transition">Custom Projects</button>
+                    </div>
+                    <div class="bg-white rounded-2xl p-8 md:p-10 shadow-sm border border-slate-200/50 min-h-[300px]">
+                        <div id="tab1" class="tab-content">
+                            <h3 class="text-2xl font-bold text-teal-600 mb-3">1-Hour Finance Automation Audit - ₹2,000</h3>
+                            <p class="text-slate-600 mb-4">The perfect starting point. I'll conduct a deep dive into your existing Finance & HR processes to identify the top 3 high-impact automation opportunities. You'll receive a quick-win roadmap to build trust and deliver immediate value.</p>
+                            <ul class="list-disc list-inside text-slate-600 space-y-2">
+                                <li>Review of core Finance & HR processes.</li>
+                                <li>Identification of key automation opportunities.</li>
+                                <li>Delivery of a practical, actionable roadmap.</li>
+                            </ul>
+                        </div>
+                        <div id="tab2" class="tab-content hidden">
+                            <h3 class="text-2xl font-bold text-teal-600 mb-3">Monthly Retainers - ₹20k – 30k</h3>
+                             <p class="text-slate-600 mb-4">Ongoing partnership for continuous improvement. I'll become your dedicated efficiency expert, implementing and managing your automation strategy to ensure long-term savings and efficiency.</p>
+                             <ul class="list-disc list-inside text-slate-600 space-y-2">
+                                <li>Finance & MIS Process Automation.</li>
+                                <li>Payroll & HR Workflow Automation.</li>
+                                <li>Cross-Functional Integration (Sales, Ops, etc.).</li>
+                                <li>Ongoing Support & Optimization.</li>
+                            </ul>
+                        </div>
+                        <div id="tab3" class="tab-content hidden">
+                            <h3 class="text-2xl font-bold text-teal-600 mb-3">Custom Projects & Digital Templates</h3>
+                            <p class="text-slate-600 mb-4">For specific, large-scale needs or for teams who want to get started with powerful tools. Pricing is based on project scope, and I also offer one-time sales of digital automation templates.</p>
+                             <ul class="list-disc list-inside text-slate-600 space-y-2">
+                                <li>End-to-end integration across multiple departments.</li>
+                                <li>Complex workflow automation challenges.</li>
+                                <li>Ready-to-use digital templates for common tasks.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-  <!-- Bill Table -->
-  <table id="billTable">
-    <thead>
-      <tr>
-        <th>Description</th>
-        <th>Amount (₹)</th>
-        <th>GST (18%)</th>
-        <th>Discount (₹)</th>
-        <th>Total (₹)</th>
-        <th class="entry-section">Action</th>
-      </tr>
-    </thead>
-    <tbody id="billBody"></tbody>
-  </table>
+        <section id="roi" class="py-16 bg-white">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold text-slate-800">Calculate Your Potential ROI</h2>
+                    <p class="mt-4 text-slate-600 max-w-2xl mx-auto">Automation isn't a cost; it's an investment. Use this simple calculator to estimate how much time and money you could save each month. The 70% effort reduction is a powerful lever for growth.</p>
+                </div>
+                <div class="max-w-5xl mx-auto grid md:grid-cols-2 gap-10 items-center">
+                    <div class="space-y-6">
+                        <div>
+                            <label for="hours-slider" class="font-semibold text-slate-700">Manual Hours Per Week</label>
+                            <div class="flex items-center space-x-4">
+                                <input type="range" id="hours-slider" min="5" max="100" value="20" class="w-full h-2 bg-slate-200 rounded-lg appearance-none cursor-pointer slider-thumb">
+                                <span id="hours-value" class="font-bold text-teal-600 text-lg w-16 text-center">20 hrs</span>
+                            </div>
+                        </div>
+                        <div>
+                            <label for="rate-slider" class="font-semibold text-slate-700">Average Blended Hourly Rate (₹)</label>
+                             <div class="flex items-center space-x-4">
+                                <input type="range" id="rate-slider" min="250" max="2500" value="800" step="50" class="w-full h-2 bg-slate-200 rounded-lg appearance-none cursor-pointer slider-thumb">
+                                <span id="rate-value" class="font-bold text-teal-600 text-lg w-20 text-center">₹800</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-teal-50 border border-teal-200 rounded-xl p-8 text-center">
+                        <h4 class="text-lg font-semibold text-teal-800 mb-2">Estimated Monthly Savings</h4>
+                        <div class="grid grid-cols-2 gap-4 mt-4">
+                            <div>
+                                <p class="text-3xl md:text-4xl font-bold text-teal-600" id="time-saved">56</p>
+                                <p class="text-teal-700">Hours Saved</p>
+                            </div>
+                             <div>
+                                <p class="text-3xl md:text-4xl font-bold text-teal-600" id="cost-saved">₹44,800</p>
+                                <p class="text-teal-700">Cost Saved</p>
+                            </div>
+                        </div>
+                        <p class="mt-6 text-sm text-teal-800">Based on a 70% reduction in manual effort. Imagine what you could do with this extra time and capital.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-  <!-- Buttons and Discount -->
-  <div class="action-buttons">
-    <button class="green" onclick="addItem()">+ Add Item</button>
+         <section id="case-study" class="py-16">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold text-slate-800">Proven Results: A Case Study</h2>
+                    <p class="mt-4 text-slate-600 max-w-2xl mx-auto">This is for Small & Mid-sized Businesses, Post-Series A Startups, and Family Businesses modernizing their operations. Here’s a real-world example of the impact.</p>
+                </div>
+                <div class="max-w-4xl mx-auto bg-white rounded-2xl p-8 md:p-10 shadow-lg border border-slate-200/50">
+                    <h3 class="text-2xl font-bold text-slate-700">Client: Manufacturing SME</h3>
+                    <div class="mt-6 grid md:grid-cols-2 gap-8">
+                        <div>
+                            <h4 class="font-semibold text-amber-600 mb-2">Before Automation</h4>
+                            <p class="text-slate-600"><strong class="font-semibold">Problem:</strong> Month-end MIS reporting was a major bottleneck, consuming 7 full days of manual data consolidation and report generation from multiple sources.</p>
+                            <p class="text-slate-600 mt-2"><strong class="font-semibold">Impact:</strong> Delayed decisions, high risk of human error, and key personnel tied up in low-value tasks.</p>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-teal-600 mb-2">After Automation</h4>
+                            <p class="text-slate-600"><strong class="font-semibold">Solution:</strong> I implemented an automated MIS reporting system using Excel Power Query to link and transform data from various systems automatically.</p>
+                            <p class="text-slate-600 mt-2"><strong class="font-semibold">Result:</strong> Reports are now generated in just 2 hours. This represents an <span class="font-bold text-teal-600 text-lg">80% reduction in effort</span>, freeing up nearly 54 hours per month for strategic analysis.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-    <label for="discountSelect">Give Discount:</label>
-    <select id="discountSelect" onchange="updateTotals()">
-      <option value="0">No Discount</option>
-    </select>
+        <section id="plan" class="py-16 bg-white">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold text-slate-800">My Strategic Plan & Vision</h2>
+                    <p class="mt-4 text-slate-600 max-w-2xl mx-auto">I have a clear roadmap for growth, ensuring I can continue to provide high-value services as your business scales. This section outlines my projected revenue model and my plan to build a leading automation advisory.</p>
+                </div>
+                <div class="grid lg:grid-cols-2 gap-12 items-center">
+                    <div class="max-w-md mx-auto">
+                        <h3 class="text-2xl font-semibold text-center text-slate-700 mb-6">First-Year Revenue Goal: ~₹2L/Month</h3>
+                        <div class="chart-container">
+                            <canvas id="revenueChart"></canvas>
+                        </div>
+                    </div>
+                    <div>
+                        <h3 class="text-2xl font-semibold text-slate-700 mb-6">Growth Roadmap</h3>
+                        <div class="relative pl-8 border-l-2 border-teal-200">
+                            <div class="mb-8">
+                                <div class="absolute w-6 h-6 bg-teal-500 rounded-full -left-3 border-4 border-white"></div>
+                                <h4 class="font-bold text-teal-600">Phase 1: Solo Consultant</h4>
+                                <p class="text-slate-600">Establish a strong brand, deliver exceptional results for my first 3-5 retainer clients, and build a powerful referral engine.</p>
+                            </div>
+                            <div class="mb-8">
+                                <div class="absolute w-6 h-6 bg-white rounded-full -left-3 border-2 border-teal-500"></div>
+                                <h4 class="font-bold text-slate-700">Phase 2: Hire Virtual Assistant / Associate</h4>
+                                <p class="text-slate-600">Scale operations by delegating administrative and lead generation tasks, allowing me to focus solely on client delivery and strategy.</p>
+                            </div>
+                            <div>
+                                <div class="absolute w-6 h-6 bg-white rounded-full -left-3 border-2 border-teal-500"></div>
+                                <h4 class="font-bold text-slate-700">Phase 3: Boutique Automation Advisory Firm</h4>
+                                <p class="text-slate-600">Build a specialized team to become the go-to "Chief Efficiency Officer" firm for SMEs and Startups across India.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-    <button class="blue" onclick="window.print()">🖨️ Print Bill</button>
-  </div>
+        <section id="contact" class="py-20 bg-slate-800 text-white">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="text-3xl md:text-4xl font-bold">Ready to Transform Your Operations?</h2>
+                <p class="mt-4 text-slate-300 max-w-2xl mx-auto">Let’s start with a 1-Hour Automation Audit. For just ₹2,000, I'll provide you with a roadmap to save dozens of hours and thousands of rupees every month.</p>
+                <div class="mt-10">
+                     <a href="mailto:Manirajman800@gmail.com" class="bg-teal-500 text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-teal-600 transition-transform hover:scale-105 shadow-lg">Schedule Your Audit Now 🚀</a>
+                </div>
+                <div class="mt-12 text-slate-300">
+                    <p class="font-semibold text-lg">Mani Raj</p>
+                    <p>Finance & HR Automation Expert</p>
+                    <div class="mt-4 flex justify-center space-x-6">
+                        <a href="mailto:Manirajman800@gmail.com" class="hover:text-teal-400">Manirajman800@gmail.com</a>
+                        <span>•</span>
+                        <a href="tel:9876543210" class="hover:text-teal-400">9876543210</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
 
-  <!-- Grand Total -->
-  <h2>Grand Total: ₹<span id="grandTotal">0.00</span></h2>
-  <hr>
-  <p> 
-    Nizampet municipal office, Pragathinagar📍🌍! 
-    Please let us know your requirement, we will respond to your message as soon as possible. 
-    Thank you !!🙏🙏🙏 
-  </p>
+    <footer class="bg-slate-900 text-slate-400 py-6">
+        <div class="container mx-auto px-6 text-center text-sm">
+            <p>&copy; 2025 Mani Raj. All rights reserved. Helping businesses achieve peak efficiency.</p>
+        </div>
+    </footer>
 
-  <script>
-    // Populate discount options
-    const discountSelect = document.getElementById('discountSelect');
-    for (let i = 5; i <= 100; i += 5) {
-      const option = document.createElement('option');
-      option.value = i;
-      option.text = `${i}%`;
-      discountSelect.appendChild(option);
-    }
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const tabs = document.querySelectorAll('.tab-btn');
+            const tabContents = document.querySelectorAll('.tab-content');
 
-    function updateCustomerName() {
-      const name = document.getElementById('customerName').value;
-      document.getElementById('printedCustomerName').textContent = name;
-    }
+            tabs.forEach(tab => {
+                tab.addEventListener('click', () => {
+                    const target = tab.getAttribute('data-tab');
 
-    function addItem() {
-      const tbody = document.getElementById('billBody');
-      const row = document.createElement('tr');
+                    tabs.forEach(t => {
+                        t.classList.remove('bg-white', 'text-slate-700');
+                        t.classList.add('text-slate-600');
+                    });
+                    tab.classList.add('bg-white', 'text-slate-700');
+                    tab.classList.remove('text-slate-600');
 
-      row.innerHTML = `
-        <td>
-          <input type="text" class="editable" oninput="updateTotals()" placeholder="Item description" />
-          <span class="print-only print-value"></span>
-        </td>
-        <td>
-          <input type="number" class="editable" value="0" oninput="updateTotals()" />
-          <span class="print-only print-value"></span>
-        </td>
-        <td class="gst">₹0.00</td>
-        <td class="discount">₹0.00</td>
-        <td class="total highlight-amount">₹0.00</td>
-        <td class="entry-section">
-          <button class="red" onclick="this.closest('tr').remove(); updateTotals();">X</button>
-        </td>
-      `;
+                    tabContents.forEach(content => {
+                        if (content.id === target) {
+                            content.classList.remove('hidden');
+                        } else {
+                            content.classList.add('hidden');
+                        }
+                    });
+                });
+            });
 
-      tbody.appendChild(row);
-    }
+            const hoursSlider = document.getElementById('hours-slider');
+            const hoursValue = document.getElementById('hours-value');
+            const rateSlider = document.getElementById('rate-slider');
+            const rateValue = document.getElementById('rate-value');
+            const timeSaved = document.getElementById('time-saved');
+            const costSaved = document.getElementById('cost-saved');
 
-    function updateTotals() {
-      const rows = document.querySelectorAll('#billBody tr');
-      let grandTotal = 0;
-      const discountPercent = parseInt(document.getElementById('discountSelect').value);
+            function updateROI() {
+                const hours = parseInt(hoursSlider.value);
+                const rate = parseInt(rateSlider.value);
 
-      rows.forEach(row => {
-        const descInput = row.cells[0].querySelector('input');
-        const amtInput = row.cells[1].querySelector('input');
+                hoursValue.textContent = `${hours} hrs`;
+                rateValue.textContent = `₹${rate}`;
 
-        const description = descInput.value || '';
-        const baseAmount = parseFloat(amtInput.value) || 0;
+                const monthlyHours = hours * 4;
+                const hoursReduced = monthlyHours * 0.70;
+                const costReduction = hoursReduced * rate;
 
-        const discountAmount = baseAmount * (discountPercent / 100);
-        const gst = baseAmount * 0.18;
-        const total = (baseAmount - discountAmount) + gst;
+                timeSaved.textContent = Math.round(hoursReduced);
+                costSaved.textContent = `₹${Math.round(costReduction).toLocaleString('en-IN')}`;
+            }
 
-        // Set text for print view
-        row.cells[0].querySelector('.print-value').textContent = description;
-        row.cells[1].querySelector('.print-value').textContent = `₹${baseAmount.toFixed(2)}`;
+            hoursSlider.addEventListener('input', updateROI);
+            rateSlider.addEventListener('input', updateROI);
+            updateROI();
 
-        row.querySelector('.gst').textContent = `₹${gst.toFixed(2)}`;
-        row.querySelector('.discount').textContent = `₹${discountAmount.toFixed(2)}`;
-        row.querySelector('.total').textContent = `₹${total.toFixed(2)}`;
+            const revenueChartCtx = document.getElementById('revenueChart').getContext('2d');
+            const revenueChart = new Chart(revenueChartCtx, {
+                type: 'doughnut',
+                data: {
+                    labels: ['5 Retainer Clients (@₹25k)', '10 Audits (@₹2k)', 'Project Upsells (Avg)'],
+                    datasets: [{
+                        label: 'Monthly Revenue Mix',
+                        data: [125000, 20000, 50000],
+                        backgroundColor: [
+                            '#14B8A6', 
+                            '#2DD4BF',
+                            '#5EEAD4'  
+                        ],
+                        borderColor: '#F9F6F2',
+                        borderWidth: 4,
+                        hoverOffset: 8
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'bottom',
+                            labels: {
+                                color: '#475569',
+                                font: {
+                                    size: 12,
+                                    family: "'Inter', sans-serif"
+                                }
+                            }
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    let label = context.label || '';
+                                    if (label) {
+                                        label += ': ';
+                                    }
+                                    if (context.parsed !== null) {
+                                        label += new Intl.NumberFormat('en-IN', { style: 'currency', currency: 'INR', minimumFractionDigits: 0 }).format(context.parsed);
+                                    }
+                                    return label;
+                                }
+                            }
+                        }
+                    },
+                    cutout: '60%'
+                }
+            });
+            
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('.nav-link');
 
-        grandTotal += total;
-      });
-
-      document.getElementById('grandTotal').textContent = grandTotal.toFixed(2);
-    }
-  </script>
-
+            window.addEventListener('scroll', () => {
+                let current = '';
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    if (pageYOffset >= sectionTop - 150) {
+                        current = section.getAttribute('id');
+                    }
+                });
+                
+                navLinks.forEach(link => {
+                    link.classList.remove('nav-link-active');
+                    if (link.getAttribute('href').includes(current)) {
+                        link.classList.add('nav-link-active');
+                    }
+                });
+            });
+        });
+    </script>
 </body>
 </html>
